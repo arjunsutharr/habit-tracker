@@ -1,6 +1,6 @@
 # Habit Tracker: Build and Maintain Your Routines
 
-[Demo](https://habittracker-7jx0.onrender.com) : https://habittracker-7jx0.onrender.com
+[Demo](https://habit-tracker-wnun.onrender.com) : https://habit-tracker-wnun.onrender.com
 
 ## Table of Contents
 
