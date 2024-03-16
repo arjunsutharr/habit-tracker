@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Habit Tracker</title>
+
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="/images/arrow-circle.png"
+      type="image/x-icon"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/css/home.css" />
+    <script
+      src="https://kit.fontawesome.com/de6912efbc.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header
+      class="container-sm d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="mt-4 d-flex align-items-baseline gap-2">
+        <img
+          width="30px"
+          height="30px"
+          src="/images/arrow-circle.png"
+          alt="habit tracker logo"
+        />
+        <h1>Habit Tracker</h1>
+      </div>
+      <% if(error) { %>
+      <div
+        class="alert alert-danger position-absolute alert-dismissible fade show"
+        role="alert"
+      >
+        <li><%= error %></li>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      <% } %>
+      <div
+        class="addHabit d-flex flex-column justify-content-center px-4 align-items-center rounded-1"
+      >
+        <h2>Add Habit</h2>
+
+        <form action="/addHabit" method="post">
+          <input
+            type="text"
+            name="habitName"
+            class="border border-black"
+            id="habitName"
+            placeholder="Enter habit here"
+            required
+          />
+          <input type="time" name="habitTime" id="habitTime" required />
+          <button
+            class="addHabitBtn bg-black text-light rounded-5"
+            type="submit"
+          >
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </form>
+      </div>
+    </header>
+    <main class="container-md mt-5">
+      <div class="w-100 switchViewNavbar">
+        <div>
+          <a class="viewLink" href="/">Daily view</a>
+          <a class="viewLink" href="/weekView">Week view</a>
+        </div>
+        <div>
+          <button id="previousWeekButton" class="weekNavigationBtn">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button id="nextWeekButton" class="weekNavigationBtn">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="habits w-100"><%-body %></div>
+    </main>
+
+    <script src="js/habit.js" type="module"></script>
+    <script src="js/home.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

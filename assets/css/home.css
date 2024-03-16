@@ -1,0 +1,114 @@
+body {
+  overflow-y: hidden;
+}
+
+.addHabit {
+  height: 15vh;
+  margin-top: 10vh;
+  background-color: salmon;
+}
+
+#habitName {
+  width: 30vw;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+
+#habitTime {
+  outline: none;
+  border: none;
+}
+
+.habits {
+  background-color: black;
+  /* padding: 0px 0 0px 2px; */
+  max-height: 56vh;
+  border: 1px solid salmon;
+  overflow-y: scroll;
+}
+
+.habits::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+.habits::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.habits::-webkit-scrollbar-thumb {
+  background-color: grey;
+  outline: 1px solid slategray;
+  border-radius: 10px;
+}
+
+.habit {
+  width: 10vw;
+}
+
+.listHabitName {
+  width: 15%;
+}
+
+.delteBtn {
+  cursor: pointer;
+}
+
+.switchViewNavbar {
+  background-color: salmon;
+  padding: 10px 5px 5px 5px;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.viewLink {
+  margin: 0 !important;
+  padding: 5px 5px 10px 5px;
+  border-radius: 5px 5px 0px 0px;
+  color: white;
+  text-decoration: none;
+}
+
+.addHabitBtn {
+  outline: none;
+  border-style: none;
+  transform: scale(1);
+  transition: transform 0.1s ease-in-out;
+}
+
+.addHabitBtn:hover {
+  transform: scale(1.05);
+}
+
+.addHabitBtn:active {
+  color: salmon !important;
+}
+
+tr {
+  margin-top: 5px !important;
+}
+
+.weekNavigationBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.02s ease-in-out;
+  border-radius: 50%;
+}
+
+.weekNavigationBtn:active {
+  color: white !important;
+}
+
+.weekNavigationBtn:disabled:active {
+  color: black !important;
+  opacity: 0.2;
+}
+
+.weekNavigationBtn:disabled {
+  transition: none;
+  cursor: default;
+  box-shadow: none;
+  opacity: 0.8;
+}

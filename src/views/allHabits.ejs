@@ -1,0 +1,66 @@
+<div class="allHabitsContainer">
+  <%if (habits.length > 0) { habits.forEach(habit => { %>
+  <ul class="list-group">
+    <li
+      class="list-group-item d-flex align-items-baseline justify-content-between habits-item  mt-1 rounded-0"
+    >
+      <label class="fw-bold listHabitName" for="habit"><%= habit.habit %></label>
+      <label class="form-check-label" for="habit"><%= habit.habitTime %></label>
+
+        <div class="d-flex justify-content-between align-items-baseline gap-1">
+          <label class="form-check-label" for="habit">status:</label>
+          <%if (habit.habitRecord.length > 0) { const foundRecord =
+          todaysHabitRecord(habit.habitRecord); %>
+          <% const bestStreak = habit.habitRecord.filter((record) => record.status === "yes").length;%>
+          <div class="d-flex justify-content-between align-items-baseline gap-4">            
+            <select
+              class="form-select form-select-sm habitStatusSelect d-inline"
+              aria-label="habit status"
+              name="status"
+              data-habit-id="<%= habit._id%>"
+            >
+            <% if (foundRecord) { %>  
+              <option value="none" data-habit-record-id="<%= foundRecord._id %>" <%= foundRecord.status === "none" ? "selected": '' %> > none </option>
+              <option value="yes" data-habit-record-id="<%= foundRecord._id %>" <%= foundRecord.status === "yes" ? "selected": '' %> > yes </option>
+              <option value="no" data-habit-record-id="<%= foundRecord._id %>" <%= foundRecord.status === "no" ? "selected": '' %> > no </option>
+            <% } else {%>
+              <option selected>none</option>
+              <option value="yes">Did</option>
+              <option value="no">Not did</option>
+            <% }%>
+            </select>
+            <div class="d-flex gap-1 ms-5" >
+              <span>steak:</span>
+              <span><%=` ${bestStreak}/${habit.habitRecord.length}`%></span>
+            </div>
+          </div>
+          <% } else{ %>
+          <select
+            class="form-select form-select-sm habitStatusSelect d-inline"
+            aria-label="habit status"
+            name="status"
+            data-habit-id="<%= habit._id%>"
+          >
+            <option selected>none</option>
+            <option value="yes">Did</option>
+            <option value="no">Not did</option>
+          </select>
+          <% } %>
+        </div>
+
+
+        
+
+      <a
+          class="link-dark link-opacity-75 link-opacity-100-hover cursor-pointer"
+          style="cursor: pointer"
+          onclick="deleteHabit('<%= habit._id  %>')"
+        >
+        <i class="fa-solid fa-trash-can"></i>
+      </a>
+    </li>
+  </ul>
+  <% });} else {%>
+    <p class="text-center text-light">Enter habit in the above input filed and click on add button to add habit</p>
+  <% }%>
+</div>
